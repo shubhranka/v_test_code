@@ -25,3 +25,6 @@ export class Session extends Document {
 }
 
 export const SessionSchema = SchemaFactory.createForClass(Session);
+
+// Compound unique index for idempotency (sessionId)
+SessionSchema.index({ sessionId: 1 }, { unique: true });
